@@ -17,6 +17,7 @@
   "editor.formatOnSave": true,
   "cSpell.words": [
     "navigations",
-    "persistor"
+    "persistor",
+    "Wraper"
   ]
 }
