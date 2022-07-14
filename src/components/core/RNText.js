@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
+import {COLORS, FONTS, TYPES} from 'themes';
 
 const RNText = ({
   type,
@@ -23,6 +24,7 @@ const RNText = ({
   lineHeight,
   minWidth,
   maxWidth,
+  size,
   ...props
 }) => {
   return (
@@ -31,7 +33,7 @@ const RNText = ({
       allowFontScaling={false}
       style={[
         styles.normal,
-        color && {color},
+        color && {color: color || COLORS.primaryText},
         center && styles.center,
         underLine && styles.txtUnderline,
         mTop && {marginTop: mTop},
@@ -47,6 +49,8 @@ const RNText = ({
         lineHeight && {lineHeight},
         minWidth && {minWidth},
         maxWidth && {maxWidth},
+        size && {fontSize: size || FONTS.primary},
+        type && {fontWeight: type || TYPES.regular},
         style,
       ]}
       onPress={onPress && onPress}

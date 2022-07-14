@@ -1,14 +1,135 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {forwardRef, useState} from 'react';
+import {StyleSheet, TextInput} from 'react-native';
+import {RNView, RNText, RNTouchable} from 'components';
+import RNIcon from 'react-native-vector-icons/Ionicons';
 
-const RNInput = () => {
+import {COLORS, FONTS, TYPES} from 'themes';
+
+const WTextField = ({
+  errorMessage,
+  touched,
+  multiline = false,
+  placeholder,
+  value = '',
+  keyboardType,
+  label,
+  iconName,
+  returnKeyType,
+  isPassword = false,
+  placeholderTextColor,
+  style,
+  w,
+  h,
+  fill,
+  mHoz,
+  mVer,
+  pHoz,
+  pVer,
+  mLeft,
+  mRight,
+  mTop,
+  mBottom,
+  wrapperStyle,
+  onChangeText,
+  onSubmitEditing,
+  onPressRightIcon,
+  textAlignVertical,
+}) => {
+  const [focused, setFocused] = useState(false);
+  const [secureTextEntry, setSecureTextEntry] = useState(isPassword);
+
+  const onSetSecureTextEntry = () => setSecureTextEntry(!secureTextEntry);
+
   return (
-    <View>
-      <Text>RNInput</Text>
-    </View>
+    <RNView
+      fill={fill}
+      w={w}
+      h={h}
+      pVer={pVer}
+      mLeft={mLeft}
+      mRight={mRight}
+      mTop={mTop}
+      mBottom={mBottom}
+      mVer={mVer || 12}
+      mHoz={mHoz}
+      pHoz={pHoz}
+      column
+      justifyCenter
+      style={[style]}>
+      <RNView
+        borderColor={focused ? COLORS.primary : COLORS.borderInput}
+        borderWidth={1}
+        borderRadius={8}
+        w="100%"
+        pHoz={16}
+        h={54}
+        column
+        pVer={8}
+        style={wrapperStyle}>
+        {(focused || !!value) && label && (
+          <RNText
+            type={TYPES.regular}
+            size={FONTS.primary}
+            color={COLORS.black10}
+            mBottom={1}>
+            {label}
+          </RNText>
+        )}
+        <RNView fill row alignCenter>
+          <TextInput
+            placeholder={placeholder}
+            value={value}
+            multiline={multiline}
+            caretHidden={false}
+            autoCorrect={false}
+            allowFontScaling={false}
+            blurOnSubmit={false}
+            autoCapitalize="none"
+            returnKeyType={returnKeyType}
+            keyboardType={keyboardType}
+            placeholderTextColor={placeholderTextColor || COLORS.black10}
+            secureTextEntry={secureTextEntry}
+            style={[styles.textInput]}
+            hitSlop={{top: 10, left: 10, right: 10, bottom: 10}}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            onChangeText={onChangeText}
+            onSubmitEditing={onSubmitEditing}
+            textAlignVertical={textAlignVertical}
+            spellCheck={false}
+          />
+          <RNView row alignCenter mLeft={4}>
+            {isPassword && (
+              <RNTouchable hit={16} onPress={onSetSecureTextEntry} mLeft={6}>
+                <RNIcon
+                  name={!secureTextEntry ? 'eye-outline' : 'eye-off-outline'}
+                  color={COLORS.primaryText}
+                  size={22}
+                />
+              </RNTouchable>
+            )}
+          </RNView>
+        </RNView>
+      </RNView>
+      {touched && errorMessage && (
+        <RNText
+          type={TYPES.regular}
+          size={FONTS.primary}
+          color={COLORS.error}
+          mTop={4}>
+          {errorMessage}
+        </RNText>
+      )}
+    </RNView>
   );
 };
 
-export default RNInput;
+export default forwardRef(WTextField);
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  textInput: {
+    height: '100%',
+    paddingVertical: 0,
+    flex: 1,
+  },
+});
