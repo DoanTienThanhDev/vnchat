@@ -1,4 +1,4 @@
-import {Login} from 'screens';
+import {Login, Register} from 'screens';
 import {Navigation} from 'react-native-navigation';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
@@ -9,6 +9,7 @@ import {store, persistor} from 'features/store';
 
 const SCREENS = {
   Login,
+  Register,
 };
 
 export const onRegisterScreensOnLaunch = () => {

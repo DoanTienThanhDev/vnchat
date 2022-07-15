@@ -24,7 +24,7 @@ export function push({
           drawBehind: !isBottomTabsEnable,
         },
         topBar: {
-          visible: isTopBarEnable,
+          visible: false,
           title: {
             text: title,
             alignment: 'center',

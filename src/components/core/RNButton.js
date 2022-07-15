@@ -15,12 +15,13 @@ const RNButton = ({
   textColor,
   color,
   mTop,
+  mVer,
 }) => {
   return (
     <RNTouchable
       pVer={14}
       borderRadius={8}
-      mVer={16}
+      mVer={mVer || 16}
       h={48}
       w="100%"
       center

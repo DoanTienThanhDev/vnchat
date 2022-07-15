@@ -40,6 +40,7 @@ const RNTouchable = ({
   activeOpacity,
   hit,
   column,
+  disabled,
   ...more
 }) => {
   return (
@@ -87,6 +88,7 @@ const RNTouchable = ({
         left: hit || 0,
         right: hit || 0,
       }}
+      disabled={disabled}
       onPress={onPress && onPress}
       activeOpacity={activeOpacity || 0.3}>
       {children}

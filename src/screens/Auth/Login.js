@@ -13,8 +13,9 @@ import {
 
 import {COLORS, IMAGES} from 'themes';
 import {Alert} from 'react-native';
+import {push} from 'navigations';
 
-const Login = () => {
+const Login = ({componentId}) => {
   const [user, setUser] = useState({email: '', password: ''});
 
   const onChangeText = (field, value) => {
@@ -29,7 +30,10 @@ const Login = () => {
   };
 
   const onRegister = () => {
-    Alert.alert('on re');
+    push({
+      id: componentId,
+      screen: 'Register',
+    });
   };
   return (
     <RNContainer>
@@ -40,9 +44,7 @@ const Login = () => {
         <RNView fill>
           <RNInput
             label={'Email'}
-            placeholder={'Please enter your email'}
-            errorMessage={'Email is required field'}
-            touched={true}
+            placeholder={'Nhập Email của bạn'}
             value={user?.email}
             onChangeText={text => onChangeText('email', text)}
           />
@@ -50,6 +52,7 @@ const Login = () => {
             isPassword
             onChangeText={text => onChangeText('password', text)}
             value={user?.password}
+            placeholder={'Nhập mật khẩu của bạn'}
           />
           <RNText color={COLORS.blue} onPress={onForgotPassword} underLine>
             Quên mật khẩu ?

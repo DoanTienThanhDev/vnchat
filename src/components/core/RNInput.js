@@ -1,4 +1,4 @@
-import React, {forwardRef, useState} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import {RNView, RNText, RNTouchable} from 'components';
 import RNIcon from 'react-native-vector-icons/Ionicons';
@@ -13,7 +13,6 @@ const WTextField = ({
   value = '',
   keyboardType,
   label,
-  iconName,
   returnKeyType,
   isPassword = false,
   placeholderTextColor,
@@ -32,7 +31,6 @@ const WTextField = ({
   wrapperStyle,
   onChangeText,
   onSubmitEditing,
-  onPressRightIcon,
   textAlignVertical,
 }) => {
   const [focused, setFocused] = useState(false);
@@ -124,7 +122,7 @@ const WTextField = ({
   );
 };
 
-export default forwardRef(WTextField);
+export default WTextField;
 
 const styles = StyleSheet.create({
   textInput: {
