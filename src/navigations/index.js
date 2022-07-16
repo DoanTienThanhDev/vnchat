@@ -1,19 +1,6 @@
 import {Navigation} from 'react-native-navigation';
-import {COLORS} from 'themes/colors';
 
-export function push({
-  id,
-  screen,
-  title,
-  isTopBarEnable,
-  isBottomTabsEnable,
-  rightButtonIcon,
-  elevation,
-  passProps,
-  textRightTop,
-  disabledRight,
-  colorBtnRight,
-}) {
+export function push({id, screen, isBottomTabsEnable, passProps}) {
   Navigation.push(id, {
     component: {
       name: screen,
@@ -25,32 +12,50 @@ export function push({
         },
         topBar: {
           visible: false,
-          title: {
-            text: title,
-            alignment: 'center',
-            fontSize: 16,
-            fontFamily: '',
-          },
-          rightButtons:
-            rightButtonIcon || textRightTop
-              ? [
-                  {
-                    id: rightButtonIcon || textRightTop,
-                    text: textRightTop,
-                    enabled: disabledRight,
-                    disabledColor: COLORS.neutral2,
-                    icon: '',
-                    color: colorBtnRight,
-                  },
-                ]
-              : [],
-          elevation: elevation,
-          backButton: {
-            showTitle: false,
-            color: COLORS.white,
-          },
         },
       },
     },
   });
 }
+
+export const onLogin = () => {
+  return Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: 'Login',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+};
+
+export const onMainContent = () => {
+  return Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: 'Home',
+              options: {
+                topBar: {
+                  visible: false,
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+};

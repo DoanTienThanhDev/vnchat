@@ -9,8 +9,8 @@ import {
   RNInput,
   RNButton,
 } from 'components';
-import {translate} from 'translate';
 
+import {translate} from 'translate';
 import {COLORS} from 'themes';
 
 const Register = ({componentId}) => {
@@ -29,16 +29,31 @@ const Register = ({componentId}) => {
             <RNIcon name={'camera-outline'} size={24} color={COLORS.primary} />
           </RNTouchable>
         </RNView>
-        <RNInput label={'Họ và tên'} placeholder={'Nhập họ và tên của bạn'} />
-        <RNInput label={'Email'} placeholder={'Nhập email của bạn'} />
         <RNInput
-          label={'Số điện thoại'}
-          placeholder={'Nhập số điện thoại của bạn'}
+          label={translate('AUTH.fullName')}
+          placeholder={translate('AUTH.placeholderFullName')}
         />
-        <RNInput label={'Giới tính'} placeholder={'Chọn giới tính của bạn'} />
-        <RNInput label={'Mật khẩu'} placeholder={'Nhập mật khẩu'} />
-        <RNInput label={'Mật khẩu'} placeholder={'Nhập lại mật khẩu'} />
-        <RNButton title={translate('AUTH.login')} />
+        <RNInput
+          label={translate('AUTH.email')}
+          placeholder={translate('AUTH.placeholderEmail')}
+        />
+        <RNInput
+          label={translate('AUTH.phoneNumber')}
+          placeholder={translate('AUTH.placeholderPhoneNumber')}
+        />
+        <RNInput
+          label={translate('AUTH.gender')}
+          placeholder={translate('AUTH.placeholderGender')}
+        />
+        <RNInput
+          label={translate('AUTH.password')}
+          placeholder={translate('AUTH.placeholderPassword')}
+        />
+        <RNInput
+          label={translate('AUTH.password')}
+          placeholder={translate('AUTH.confirmPassword')}
+        />
+        <RNButton title={translate('AUTH.register')} />
       </RNView>
     </RNContainer>
   );

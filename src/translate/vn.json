@@ -1,6 +1,30 @@
 {
   "AUTH":{
-    "login": "Login",
-    "register": "REGISTER"
+    "login": "Đăng Nhập",
+    "register": "Đăng Ký",
+    "fullName": "Họ và Tên",
+    "placeholderFullName": "Nhập họ và tên của bạn",
+    "phoneNumber": "Số Điện Thoại",
+    "placeholderPhoneNumber": "Nhập số điện thoại của bạn",
+    "gender": "Gới Tính",
+    "placeholderGender": "Chọn giới tính của bạn",
+    "dateOfBirth": "Ngày Sinh",
+    "placeholderDateOfBirth": "Chọn ngày sinh của bạn",
+    "password": "Mật khẩu",
+    "placeholderPassword": "Nhập mật khẩu của bạn",
+    "email": "Email",
+    "placeholderEmail": "Nhập email của bạn",
+    "confirmPassword": "Nhập lại mật khẩu",
+    "requiredEmail": "Bạn phải nhập email",
+    "requiredPassword": "Bạn phải nhập mật khẩu",
+    "minPassword": "Mật khẩu không được ít hơn 8 ký tự",
+    "maxPassword": "Mật khẩu không được quá 32 ký tự",
+    "invalidEmail": "Email của bạn chưa hợp lệ",
+    "forgotPassword": "Bạn quên mật khẩu?",
+    "registerNewAccount": "Đăng ký tài khoản mới?",
+    "messageGetEmail": "Nhập email của bạn để hệ thống có thể gửi bạn mã xác minh lấy lại mật khẩu.",
+  },
+  "COMMON":{
+        "submit": "Xác Nhận"
   }
 }

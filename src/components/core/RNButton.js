@@ -26,7 +26,7 @@ const RNButton = ({
       w="100%"
       center
       disabled={disabled}
-      color={color || COLORS.primary}
+      color={disabled ? COLORS.black10 : color || COLORS.primary}
       style={style}
       mTop={mTop}
       onPress={onPress}>

@@ -64,49 +64,53 @@ const WTextField = ({
         column
         pVer={8}
         style={wrapperStyle}>
-        {(focused || !!value) && label && (
-          <RNText
-            type={TYPES.regular}
-            size={FONTS.primary}
-            color={COLORS.black10}
-            mBottom={1}>
-            {label}
-          </RNText>
-        )}
-        <RNView fill row alignCenter>
-          <TextInput
-            placeholder={placeholder}
-            value={value}
-            multiline={multiline}
-            caretHidden={false}
-            autoCorrect={false}
-            allowFontScaling={false}
-            blurOnSubmit={false}
-            autoCapitalize="none"
-            returnKeyType={returnKeyType}
-            keyboardType={keyboardType}
-            placeholderTextColor={placeholderTextColor || COLORS.black10}
-            secureTextEntry={secureTextEntry}
-            style={[styles.textInput]}
-            hitSlop={{top: 10, left: 10, right: 10, bottom: 10}}
-            onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
-            textAlignVertical={textAlignVertical}
-            spellCheck={false}
-          />
-          <RNView row alignCenter mLeft={4}>
-            {isPassword && (
-              <RNTouchable hit={16} onPress={onSetSecureTextEntry} mLeft={6}>
-                <RNIcon
-                  name={!secureTextEntry ? 'eye-outline' : 'eye-off-outline'}
-                  color={COLORS.primaryText}
-                  size={22}
-                />
-              </RNTouchable>
+        <RNView row fill>
+          <RNView fill justifyCenter>
+            {(focused || !!value) && label && (
+              <RNText
+                type={TYPES.regular}
+                size={FONTS.primary}
+                color={COLORS.black10}
+                mBottom={1}>
+                {label}
+              </RNText>
             )}
+            <TextInput
+              placeholder={placeholder}
+              value={value}
+              multiline={multiline}
+              caretHidden={false}
+              autoCorrect={false}
+              allowFontScaling={false}
+              blurOnSubmit={false}
+              autoCapitalize="none"
+              returnKeyType={returnKeyType}
+              keyboardType={keyboardType}
+              placeholderTextColor={placeholderTextColor || COLORS.black10}
+              secureTextEntry={secureTextEntry}
+              style={[styles.textInput]}
+              hitSlop={{top: 10, left: 10, right: 10, bottom: 10}}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+              onChangeText={onChangeText}
+              onSubmitEditing={onSubmitEditing}
+              textAlignVertical={textAlignVertical}
+              spellCheck={false}
+            />
           </RNView>
+          {isPassword && (
+            <RNTouchable
+              hit={16}
+              onPress={onSetSecureTextEntry}
+              mLeft={6}
+              center>
+              <RNIcon
+                name={!secureTextEntry ? 'eye-outline' : 'eye-off-outline'}
+                color={COLORS.primaryText}
+                size={22}
+              />
+            </RNTouchable>
+          )}
         </RNView>
       </RNView>
       {touched && errorMessage && (
