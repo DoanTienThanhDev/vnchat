@@ -21,8 +21,13 @@
     "maxPassword": "Mật khẩu không được quá 32 ký tự",
     "invalidEmail": "Email của bạn chưa hợp lệ",
     "forgotPassword": "Bạn quên mật khẩu?",
-    "registerNewAccount": "Đăng ký tài khoản mới?",
+    "registerNewAccount": "Bạn chưa có tài khoản?",
     "messageGetEmail": "Nhập email của bạn để hệ thống có thể gửi bạn mã xác minh lấy lại mật khẩu.",
+    "titleVerifyCode": "Mã Xác Nhận",
+    "msgVerify": "Nhập mã xác nhận hệ thống đã gửi cho bạn trong hòm thư email mà bạn đã đăng ký.",
+    "notHasCode": "Bạn chưa nhập được mã xác nhận?",
+    "sentAgain": "Gửi Lại",
+    "changePassword": "Mật Khẩu Mới"
   },
   "COMMON":{
         "submit": "Xác Nhận"

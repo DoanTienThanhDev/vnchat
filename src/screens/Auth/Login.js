@@ -117,8 +117,11 @@ const Login = ({componentId}) => {
           </RNView>
         </RNView>
       </RNView>
-      <RNText mBottom={16} mTop={12} textAlign={'center'} onPress={onRegister}>
-        {translate('AUTH.registerNewAccount')}
+      <RNText mBottom={16} mTop={12} textAlign={'center'}>
+        {`${translate('AUTH.registerNewAccount')}  `}
+        <RNText onPress={onRegister} color={COLORS.primary}>
+          {translate('AUTH.register')}
+        </RNText>
       </RNText>
     </RNContainer>
   );
