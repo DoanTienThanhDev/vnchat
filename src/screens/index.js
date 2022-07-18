@@ -4,5 +4,14 @@ import Home from './Home';
 import ForgotPassword from 'screens/Auth/ForgotPassword';
 import CodePassword from 'screens/Auth/ForgotPassword/CodePassword';
 import ChangePassword from 'screens/Auth/ForgotPassword/ChangePassword';
+import Chat from 'screens/Chat';
 
-export {Login, Register, Home, ForgotPassword, CodePassword, ChangePassword};
+export {
+  Login,
+  Register,
+  Home,
+  ForgotPassword,
+  CodePassword,
+  ChangePassword,
+  Chat,
+};

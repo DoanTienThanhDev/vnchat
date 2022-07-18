@@ -30,6 +30,7 @@
     "changePassword": "Mật Khẩu Mới"
   },
   "COMMON":{
-        "submit": "Xác Nhận"
+        "submit": "Xác Nhận",
+        "appName": "VNCHAT"
   }
 }

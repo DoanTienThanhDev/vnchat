@@ -1,12 +1,14 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-import {onLogin} from 'navigations';
+import {onLogin, onMainContent} from 'navigations';
 import setI18nConfig from 'translate';
+import {iconsLoaded} from 'utils/icon';
 
 export const startUp = createAsyncThunk(
   'app/startUp',
   async (_, {rejectWithValue, getState}) => {
     try {
+      await iconsLoaded;
       await setI18nConfig('vn');
       onLogin();
     } catch (err) {

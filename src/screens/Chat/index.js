@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {Header, RNView} from 'components';
 
 const ChatBox = () => {
   return (
-    <View>
-      <Text>ChatBox</Text>
-    </View>
-  )
-}
+    <RNView fill>
+      <Header title={'Tin Nhắn'} />
+    </RNView>
+  );
+};
 
 export default ChatBox;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

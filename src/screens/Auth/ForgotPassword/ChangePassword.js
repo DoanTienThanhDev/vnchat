@@ -59,12 +59,14 @@ const ChangePassword = ({componentId}) => {
             placeholder={translate('AUTH.placeholderPassword')}
             onChangeText={text => onChangeText('password', text)}
             value={formik.values.password}
+            isPassword
           />
           <RNInput
             label={translate('AUTH.password')}
             placeholder={translate('AUTH.confirmPassword')}
             onChangeText={text => onChangeText('confirmPassword', text)}
             value={formik.values.confirmPassword}
+            isPassword
           />
           <RNButton
             title={translate('COMMON.submit')}

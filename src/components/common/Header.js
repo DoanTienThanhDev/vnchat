@@ -36,9 +36,14 @@ const Header = ({
       }
       pHoz={mHoz || 8}
       style={styles.container}>
-      <RNTouchable onPress={onPressBack || onBack} h={40} w={40} center>
+      <RNTouchable
+        onPress={onPressBack || onBack}
+        h={40}
+        w={40}
+        center
+        disabled={!componentId}>
         <RNIcon
-          name="chevron-back-outline"
+          name={!componentId ? null : 'chevron-back-outline'}
           size={24}
           color={COLORS.primaryText}
         />
@@ -52,12 +57,7 @@ const Header = ({
         mBottom={8}>
         {`${title || ''}`}
       </RNText>
-      <RNTouchable
-        disabled={!onPressBack}
-        onPress={onPressRight}
-        w={40}
-        h={40}
-        dis>
+      <RNTouchable disabled={!onPressBack} onPress={onPressRight} w={40} h={40}>
         <RNIcon name={icon} size={24} color={COLORS.primaryText} />
       </RNTouchable>
     </RNView>

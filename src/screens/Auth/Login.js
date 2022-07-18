@@ -1,5 +1,4 @@
-import React from 'react';
-import RNIcon from 'react-native-vector-icons/Ionicons';
+import React, {useState} from 'react';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {useDispatch, useSelector} from 'react-redux';
@@ -20,8 +19,7 @@ import {translate} from 'translate';
 import {login} from 'features/auth/operations';
 
 const Login = ({componentId}) => {
-  const loading = useSelector(state => state.auth.loading);
-
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -45,18 +43,11 @@ const Login = ({componentId}) => {
   };
 
   const onLogin = async ({email, password}) => {
-    try {
-      const result = await dispatch(
-        login({
-          email,
-          password,
-        }),
-      );
-      if (login.fulfilled.match(result)) {
-        onMainContent();
-      } else {
-      }
-    } catch (error) {}
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      onMainContent();
+    }, 1000);
   };
 
   const onForgotPassword = () => {
@@ -76,8 +67,8 @@ const Login = ({componentId}) => {
   return (
     <RNContainer>
       <RNView fill pHoz={8}>
-        <RNView fill center>
-          <RNIcon name="chatbox-ellipses" size={150} color={COLORS.primary} />
+        <RNView fill center pTop={50}>
+          <RNImage source={IMAGES.imgLogo} w={150} h={150} />
         </RNView>
         <RNView fill>
           <RNInput
@@ -113,6 +104,9 @@ const Login = ({componentId}) => {
             </RNTouchable>
             <RNTouchable fill center>
               <RNImage source={IMAGES.icGoogle} w={50} h={50} />
+            </RNTouchable>
+            <RNTouchable fill center>
+              <RNImage source={IMAGES.icApple} w={50} h={50} />
             </RNTouchable>
           </RNView>
         </RNView>
