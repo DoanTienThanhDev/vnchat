@@ -13,7 +13,7 @@ import {
   RNTouchable,
 } from 'components';
 
-import {COLORS, IMAGES} from 'themes';
+import {COLORS, FONTS, IMAGES, TYPES} from 'themes';
 import {onMainContent, push} from 'navigations';
 import {translate} from 'translate';
 import {login} from 'features/auth/operations';
@@ -98,16 +98,24 @@ const Login = ({componentId}) => {
             loading={loading}
             disabled={loading}
           />
-          <RNView row mVer={12} mHoz={32} fill alignItems={'flex-end'}>
-            <RNTouchable fill center>
-              <RNImage source={IMAGES.icFacebook} w={50} h={50} />
-            </RNTouchable>
-            <RNTouchable fill center>
-              <RNImage source={IMAGES.icGoogle} w={50} h={50} />
-            </RNTouchable>
-            <RNTouchable fill center>
-              <RNImage source={IMAGES.icApple} w={50} h={50} />
-            </RNTouchable>
+          <RNView fill alignCenter justifyContent={'flex-end'}>
+            <RNText
+              type={TYPES.medium}
+              size={FONTS.primary}
+              color={COLORS.primaryText}>
+              {translate('AUTH.loginBy')}
+            </RNText>
+            <RNView row mVer={12} mHoz={32} alignItems={'flex-end'}>
+              <RNTouchable fill center>
+                <RNImage source={IMAGES.icFacebook} w={50} h={50} />
+              </RNTouchable>
+              <RNTouchable fill center>
+                <RNImage source={IMAGES.icGoogle} w={50} h={50} />
+              </RNTouchable>
+              <RNTouchable fill center>
+                <RNImage source={IMAGES.icApple} w={50} h={50} />
+              </RNTouchable>
+            </RNView>
           </RNView>
         </RNView>
       </RNView>

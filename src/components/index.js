@@ -6,6 +6,7 @@ import RNImage from './core/RNImage';
 import RNInput from './core/RNInput';
 import RNTouchable from './core/RNTouchable';
 import Header from './common/Header';
+import RNDropDown from './common/RNDropDown';
 
 export {
   RNView,
@@ -16,4 +17,5 @@ export {
   RNInput,
   RNTouchable,
   Header,
+  RNDropDown,
 };

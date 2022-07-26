@@ -6,7 +6,7 @@
     "placeholderFullName": "Nhập họ và tên của bạn",
     "phoneNumber": "Số Điện Thoại",
     "placeholderPhoneNumber": "Nhập số điện thoại của bạn",
-    "gender": "Gới Tính",
+    "gender": "Giới Tính",
     "placeholderGender": "Chọn giới tính của bạn",
     "dateOfBirth": "Ngày Sinh",
     "placeholderDateOfBirth": "Chọn ngày sinh của bạn",
@@ -27,7 +27,14 @@
     "msgVerify": "Nhập mã xác nhận hệ thống đã gửi cho bạn trong hòm thư email mà bạn đã đăng ký.",
     "notHasCode": "Bạn chưa nhập được mã xác nhận?",
     "sentAgain": "Gửi Lại",
-    "changePassword": "Mật Khẩu Mới"
+    "changePassword": "Mật Khẩu Mới",
+    "loginBy":"Đăng Nhập Bằng",
+    "male": "Nam",
+    "female": "Nữ",
+    "other": "Khác",
+    "requiredFullName": "Bạn phải nhập họ và tên",
+    "requiredGender": "Bạn phải chọn giới tính của bạn",
+    "passwordNotMatch": "Mật khẩu của bạn không trùng nhau"
   },
   "COMMON":{
         "submit": "Xác Nhận",

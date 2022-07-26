@@ -1,3 +1,5 @@
+import {Dimensions} from 'react-native';
+
 export const FONTS = {
   primary: 14,
   S16: 16,
@@ -13,4 +15,9 @@ export const TYPES = {
   regular: '400',
   medium: '500',
   bold: '700',
+};
+
+export const SCREEN_SIZE = {
+  WIDTH: Dimensions.get('window').width,
+  HEIGHT: Dimensions.get('window').height,
 };

@@ -5,7 +5,7 @@ import RNIcon from 'react-native-vector-icons/Ionicons';
 
 import {COLORS, FONTS, TYPES} from 'themes';
 
-const WTextField = ({
+const RNInput = ({
   errorMessage,
   touched,
   multiline = false,
@@ -126,7 +126,7 @@ const WTextField = ({
   );
 };
 
-export default WTextField;
+export default RNInput;
 
 const styles = StyleSheet.create({
   textInput: {
