@@ -16,6 +16,9 @@ const Header = ({
   icon,
   mTop,
   mHoz,
+  iconLeft,
+  sizeIcon,
+  colorIcon,
 }) => {
   const onBack = () => {
     Navigation.pop(componentId);
@@ -43,9 +46,9 @@ const Header = ({
         center
         disabled={!componentId}>
         <RNIcon
-          name={!componentId ? null : 'chevron-back-outline'}
-          size={24}
-          color={COLORS.primaryText}
+          name={!componentId ? null : iconLeft || 'chevron-back-outline'}
+          size={sizeIcon || 24}
+          color={colorIcon || COLORS.primaryText}
         />
       </RNTouchable>
       <RNText

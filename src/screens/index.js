@@ -6,6 +6,7 @@ import CodePassword from 'screens/Auth/ForgotPassword/CodePassword';
 import ChangePassword from 'screens/Auth/ForgotPassword/ChangePassword';
 import Chat from 'screens/Chat';
 import ChatBox from 'screens/Chat/ChatBox';
+import SideMenu from 'screens/SideMenu';
 
 export {
   Login,
@@ -16,4 +17,5 @@ export {
   ChangePassword,
   Chat,
   ChatBox,
+  SideMenu,
 };

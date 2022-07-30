@@ -1,32 +1,54 @@
 import {StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import RNIcon from 'react-native-vector-icons/Ionicons';
+import SideMenu from 'react-native-side-menu-updated';
 
-import {RNText, RNTouchable, RNView} from 'components';
+import {Header, RNText, RNTouchable, RNView} from 'components';
+import Menu from 'screens/SideMenu';
 
-import {COLORS, FONTS, TYPES} from 'themes';
+import {COLORS, FONTS, SCREEN_SIZE, TYPES} from 'themes';
+
 import {translate} from 'translate';
+import {Navigation} from 'react-native-navigation';
 
-const Home = () => {
+const Home = ({componentId}) => {
+  const [isMenu, setMenu] = useState(false);
+  const menu = <Menu />;
+
+  const onChangeMenu = () => {
+    setMenu(!isMenu);
+  };
+
+  useEffect(() => {
+    Navigation.mergeOptions(componentId, {
+      bottomTabs: {
+        visible: isMenu ? false : true,
+        drawBehind: isMenu ? false : true,
+      },
+    });
+  }, [isMenu, componentId]);
+
   return (
-    <RNView fill>
-      <RNView
-        h={180}
-        color={COLORS.primary}
-        borderBottomRightRadius={32}
-        borderBottomLeftRadius={32}>
-        <RNTouchable mTop={50} w={50} h={50} center>
-          <RNIcon name="menu" size={32} color={COLORS.bgPage} />
-        </RNTouchable>
-        <RNText
-          type={TYPES.bold}
-          size={FONTS.S28}
-          color={COLORS.bgPage}
-          mLeft={28}>
-          {translate('COMMON.appName')}
-        </RNText>
+    <SideMenu
+      menu={isMenu ? menu : null}
+      isOpen={isMenu}
+      onChange={onChangeMenu}>
+      <RNView fill>
+        <RNView
+          h={200}
+          color={COLORS.primary}
+          borderBottomRightRadius={32}
+          borderBottomLeftRadius={32}>
+          <Header
+            iconLeft={'menu-outline'}
+            onPressBack={onChangeMenu}
+            componentId={componentId}
+            sizeIcon={32}
+            colorIcon={COLORS.bgPage}
+          />
+        </RNView>
       </RNView>
-    </RNView>
+    </SideMenu>
   );
 };
 

@@ -16,6 +16,7 @@ import {
   ChangePassword,
   Chat,
   ChatBox,
+  SideMenu,
 } from 'screens';
 
 const SCREENS = {
@@ -27,6 +28,7 @@ const SCREENS = {
   ChangePassword,
   Chat,
   ChatBox,
+  SideMenu,
 };
 
 export const onRegisterScreensOnLaunch = () => {
