@@ -9,7 +9,7 @@ export function push({id, screen, isBottomTabsEnable, passProps}) {
       passProps: passProps,
       options: {
         bottomTabs: {
-          visible: isBottomTabsEnable,
+          visible: isBottomTabsEnable || false,
           drawBehind: !isBottomTabsEnable,
         },
         topBar: {

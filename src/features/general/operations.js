@@ -10,7 +10,7 @@ export const startUp = createAsyncThunk(
     try {
       await iconsLoaded;
       await setI18nConfig('vn');
-      onLogin();
+      onMainContent();
     } catch (err) {
       console.log('error', err);
       return rejectWithValue(err);

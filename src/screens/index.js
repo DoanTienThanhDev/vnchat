@@ -5,6 +5,7 @@ import ForgotPassword from 'screens/Auth/ForgotPassword';
 import CodePassword from 'screens/Auth/ForgotPassword/CodePassword';
 import ChangePassword from 'screens/Auth/ForgotPassword/ChangePassword';
 import Chat from 'screens/Chat';
+import ChatBox from 'screens/Chat/ChatBox';
 
 export {
   Login,
@@ -14,4 +15,5 @@ export {
   CodePassword,
   ChangePassword,
   Chat,
+  ChatBox,
 };
