@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 
-const WImage = ({
+const RNImage = ({
   fill,
   style,
   mTop,
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   selfCenter: {alignSelf: 'center'},
 });
 
-export default WImage;
+export default RNImage;

@@ -1,14 +1,34 @@
-import {Login} from 'screens';
 import {Navigation} from 'react-native-navigation';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ActivityIndicator} from 'react-native';
 import {NavigationProvider} from 'react-native-navigation-hooks';
 import React from 'react';
+
 import {store, persistor} from 'features/store';
+
+import {
+  Login,
+  Register,
+  Home,
+  ForgotPassword,
+  CodePassword,
+  ChangePassword,
+  Chat,
+  ChatBox,
+  SideMenu,
+} from 'screens';
 
 const SCREENS = {
   Login,
+  Register,
+  Home,
+  ForgotPassword,
+  CodePassword,
+  ChangePassword,
+  Chat,
+  ChatBox,
+  SideMenu,
 };
 
 export const onRegisterScreensOnLaunch = () => {

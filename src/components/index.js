@@ -5,5 +5,17 @@ import RNContainer from './core/RNContainer';
 import RNImage from './core/RNImage';
 import RNInput from './core/RNInput';
 import RNTouchable from './core/RNTouchable';
+import Header from './common/Header';
+import RNDropDown from './common/RNDropDown';
 
-export {RNView, RNText, RNButton, RNContainer, RNImage, RNInput, RNTouchable};
+export {
+  RNView,
+  RNText,
+  RNButton,
+  RNContainer,
+  RNImage,
+  RNInput,
+  RNTouchable,
+  Header,
+  RNDropDown,
+};

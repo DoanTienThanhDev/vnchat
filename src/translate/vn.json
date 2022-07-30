@@ -1,0 +1,43 @@
+{
+  "AUTH":{
+    "login": "Đăng Nhập",
+    "register": "Đăng Ký",
+    "fullName": "Họ và Tên",
+    "placeholderFullName": "Nhập họ và tên của bạn",
+    "phoneNumber": "Số Điện Thoại",
+    "placeholderPhoneNumber": "Nhập số điện thoại của bạn",
+    "gender": "Giới Tính",
+    "placeholderGender": "Chọn giới tính của bạn",
+    "dateOfBirth": "Ngày Sinh",
+    "placeholderDateOfBirth": "Chọn ngày sinh của bạn",
+    "password": "Mật khẩu",
+    "placeholderPassword": "Nhập mật khẩu của bạn",
+    "email": "Email",
+    "placeholderEmail": "Nhập email của bạn",
+    "confirmPassword": "Nhập lại mật khẩu",
+    "requiredEmail": "Bạn phải nhập email",
+    "requiredPassword": "Bạn phải nhập mật khẩu",
+    "minPassword": "Mật khẩu không được ít hơn 8 ký tự",
+    "maxPassword": "Mật khẩu không được quá 32 ký tự",
+    "invalidEmail": "Email của bạn chưa hợp lệ",
+    "forgotPassword": "Bạn quên mật khẩu?",
+    "registerNewAccount": "Bạn chưa có tài khoản?",
+    "messageGetEmail": "Nhập email của bạn để hệ thống có thể gửi bạn mã xác minh lấy lại mật khẩu.",
+    "titleVerifyCode": "Mã Xác Nhận",
+    "msgVerify": "Nhập mã xác nhận hệ thống đã gửi cho bạn trong hòm thư email mà bạn đã đăng ký.",
+    "notHasCode": "Bạn chưa nhập được mã xác nhận?",
+    "sentAgain": "Gửi Lại",
+    "changePassword": "Mật Khẩu Mới",
+    "loginBy":"Đăng Nhập Bằng",
+    "male": "Nam",
+    "female": "Nữ",
+    "other": "Khác",
+    "requiredFullName": "Bạn phải nhập họ và tên",
+    "requiredGender": "Bạn phải chọn giới tính của bạn",
+    "passwordNotMatch": "Mật khẩu của bạn không trùng nhau"
+  },
+  "COMMON":{
+        "submit": "Xác Nhận",
+        "appName": "VNCHAT"
+  }
+}

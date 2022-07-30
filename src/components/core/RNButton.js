@@ -15,26 +15,31 @@ const RNButton = ({
   textColor,
   color,
   mTop,
+  mVer,
+  borderRadius,
+  height,
 }) => {
   return (
     <RNTouchable
       pVer={14}
-      borderRadius={8}
-      mVer={16}
-      h={48}
+      borderRadius={borderRadius || 8}
+      mVer={mVer || 16}
+      h={height || 48}
       w="100%"
       center
       disabled={disabled}
-      color={color || COLORS.primary}
+      color={disabled ? COLORS.black10 : color || COLORS.primary}
       style={style}
       mTop={mTop}
-      onPress={onPress}>
+      onPress={onPress}
+      selfCenter
+      alignCenter>
       {loading ? (
         <ActivityIndicator size={'small'} color={COLORS.bgPage} />
       ) : (
         <>
           {children || (
-            <RNView row fill>
+            <RNView row fill center>
               <RNText
                 lineHeight={20}
                 color={textColor || COLORS.bgPage}

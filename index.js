@@ -1,25 +1,9 @@
 import {Navigation} from 'react-native-navigation';
-import Login from './src/screens/Auth/Login';
+import {store} from './src/features/store';
+import {startUp} from './src/features/general/operations';
+import {onRegisterScreensOnLaunch} from './src/navigations/registers';
 
-Navigation.registerComponent('com.myApp.WelcomeScreen', () => Login);
-
-Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'com.myApp.WelcomeScreen',
-              options: {
-                topBar: {
-                  visible: false,
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-  });
+Navigation.events().registerAppLaunchedListener(async () => {
+  await onRegisterScreensOnLaunch();
+  store.dispatch(startUp());
 });

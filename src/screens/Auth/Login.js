@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import RNIcon from 'react-native-vector-icons/Ionicons';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {
   RNContainer,
@@ -11,62 +13,117 @@ import {
   RNTouchable,
 } from 'components';
 
-import {COLORS, IMAGES} from 'themes';
-import {Alert} from 'react-native';
+import {COLORS, FONTS, IMAGES, TYPES} from 'themes';
+import {onMainContent, push} from 'navigations';
+import {translate} from 'translate';
+import {login} from 'features/auth/operations';
 
-const Login = () => {
-  const [user, setUser] = useState({email: '', password: ''});
+const Login = ({componentId}) => {
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email(translate('AUTH.invalidEmail'))
+        .required(translate('AUTH.requiredEmail')),
+      password: Yup.string().required(translate('AUTH.requiredPassword')),
+    }),
+    onSubmit: values => {
+      onLogin(values);
+    },
+  });
 
   const onChangeText = (field, value) => {
-    if (field === 'email') {
-      setUser({...user, email: value});
-    } else {
-      setUser({...user, password: value});
-    }
+    formik.setFieldValue(field, value);
   };
+
+  const onLogin = async ({email, password}) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      onMainContent();
+    }, 1000);
+  };
+
   const onForgotPassword = () => {
-    Alert.alert('password');
+    push({
+      id: componentId,
+      screen: 'ForgotPassword',
+    });
   };
 
   const onRegister = () => {
-    Alert.alert('on re');
+    push({
+      id: componentId,
+      screen: 'Register',
+    });
   };
+
   return (
     <RNContainer>
       <RNView fill pHoz={8}>
-        <RNView fill center>
-          <RNIcon name="chatbox-ellipses" size={150} color={COLORS.primary} />
+        <RNView fill center pTop={50}>
+          <RNImage source={IMAGES.imgLogo} w={150} h={150} />
         </RNView>
         <RNView fill>
           <RNInput
-            label={'Email'}
-            placeholder={'Please enter your email'}
-            errorMessage={'Email is required field'}
-            touched={true}
-            value={user?.email}
+            label={translate('AUTH.email')}
+            placeholder={translate('AUTH.placeholderEmail')}
+            value={formik.values?.email}
             onChangeText={text => onChangeText('email', text)}
+            touched={formik.touched.email}
+            errorMessage={formik.errors.email}
           />
           <RNInput
             isPassword
             onChangeText={text => onChangeText('password', text)}
-            value={user?.password}
+            value={formik.values?.password}
+            label={translate('AUTH.password')}
+            placeholder={translate('AUTH.placeholderPassword')}
+            touched={formik.touched.password}
+            errorMessage={formik.errors.password}
           />
           <RNText color={COLORS.blue} onPress={onForgotPassword} underLine>
-            Quên mật khẩu ?
+            {translate('AUTH.forgotPassword')}
           </RNText>
-          <RNButton title={'Login'} mTop={50} />
-          <RNView row mVer={12} mHoz={32} fill alignItems={'flex-end'}>
-            <RNTouchable fill center>
-              <RNImage source={IMAGES.icFacebook} w={50} h={50} />
-            </RNTouchable>
-            <RNTouchable fill center>
-              <RNImage source={IMAGES.icGoogle} w={50} h={50} />
-            </RNTouchable>
+          <RNButton
+            title={translate('AUTH.login')}
+            mTop={50}
+            onPress={formik.handleSubmit}
+            loading={loading}
+            disabled={loading}
+          />
+          <RNView fill alignCenter justifyContent={'flex-end'}>
+            <RNText
+              type={TYPES.medium}
+              size={FONTS.primary}
+              color={COLORS.primaryText}>
+              {translate('AUTH.loginBy')}
+            </RNText>
+            <RNView row mVer={12} mHoz={32} alignItems={'flex-end'}>
+              <RNTouchable fill center>
+                <RNImage source={IMAGES.icFacebook} w={50} h={50} />
+              </RNTouchable>
+              <RNTouchable fill center>
+                <RNImage source={IMAGES.icGoogle} w={50} h={50} />
+              </RNTouchable>
+              <RNTouchable fill center>
+                <RNImage source={IMAGES.icApple} w={50} h={50} />
+              </RNTouchable>
+            </RNView>
           </RNView>
         </RNView>
       </RNView>
-      <RNText mBottom={16} mTop={12} textAlign={'center'} onPress={onRegister}>
-        Đăng ký tài khoản mới ?
+      <RNText mBottom={16} mTop={12} textAlign={'center'}>
+        {`${translate('AUTH.registerNewAccount')}  `}
+        <RNText onPress={onRegister} color={COLORS.primary}>
+          {translate('AUTH.register')}
+        </RNText>
       </RNText>
     </RNContainer>
   );

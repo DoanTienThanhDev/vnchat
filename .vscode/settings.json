@@ -16,8 +16,11 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.formatOnSave": true,
   "cSpell.words": [
+    "formik",
+    "Ionicons",
     "navigations",
     "persistor",
+    "VNCHAT",
     "Wraper"
   ]
 }
