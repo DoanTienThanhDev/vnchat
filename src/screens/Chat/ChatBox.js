@@ -7,6 +7,7 @@ import {COLORS} from 'themes';
 
 const ChatBox = ({componentId}) => {
   const [messages, setMessages] = useState([]);
+  const [isMessage, setIsMessage] = useState(false);
 
   useEffect(() => {
     setMessages([
@@ -27,22 +28,30 @@ const ChatBox = ({componentId}) => {
     setMessages(previousMessages =>
       GiftedChat.append(previousMessages, messages),
     );
+    setIsMessage(false);
   }, []);
 
   const renderComposer = props => {
     return (
       <RNView row center fill borderRadius={1} borderColor={COLORS.primary}>
-        <RNTouchable
-          mHoz={12}
-          center
-          w={30}
-          h={30}
-          borderWidth={1}
-          borderColor={COLORS.primary}
-          borderRadius={4}>
-          <RNIcon name="camera-outline" size={20} color={COLORS.primary} />
-        </RNTouchable>
+        {!isMessage && (
+          <RNTouchable
+            mHoz={12}
+            center
+            w={28}
+            h={28}
+            borderWidth={1}
+            borderColor={COLORS.primary}
+            borderRadius={4}>
+            <RNIcon name="camera-outline" size={20} color={COLORS.primary} />
+          </RNTouchable>
+        )}
         <Composer {...props} style={styles.chatInput} />
+        {!isMessage && (
+          <RNTouchable mHoz={12} center w={30} h={30}>
+            <RNIcon name="heart" size={28} color={COLORS.primary} />
+          </RNTouchable>
+        )}
       </RNView>
     );
   };
@@ -61,16 +70,23 @@ const ChatBox = ({componentId}) => {
 
   return (
     <RNView fill>
-      <Header title={'Thanh Doan'} componentId={componentId} />
+      <Header
+        title={'Thanh Doan'}
+        componentId={componentId}
+        icon={'trash'}
+        onPressRight={() => {}}
+        colorIconRight={COLORS.error}
+        sizeIconRight={20}
+      />
       <RNContainer>
         <GiftedChat
           messages={messages && messages}
           onSend={text => onSend(text)}
+          onInputTextChanged={() => setIsMessage(true)}
           renderComposer={renderComposer}
           user={{
             _id: 1,
           }}
-          alwaysShowSend
           renderSend={renderIconSend}
           optionTintColor={COLORS.primary}
           messagesContainerStyle={styles.message}

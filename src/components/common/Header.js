@@ -19,6 +19,8 @@ const Header = ({
   iconLeft,
   sizeIcon,
   colorIcon,
+  colorIconRight,
+  sizeIconRight,
 }) => {
   const onBack = () => {
     Navigation.pop(componentId);
@@ -60,8 +62,17 @@ const Header = ({
         mBottom={8}>
         {`${title || ''}`}
       </RNText>
-      <RNTouchable disabled={!onPressBack} onPress={onPressRight} w={40} h={40}>
-        <RNIcon name={icon} size={24} color={COLORS.primaryText} />
+      <RNTouchable
+        disabled={!onPressBack}
+        center
+        onPress={onPressRight}
+        w={40}
+        h={40}>
+        <RNIcon
+          name={icon}
+          size={sizeIcon || 20}
+          color={colorIconRight || COLORS.primaryText}
+        />
       </RNTouchable>
     </RNView>
   );
