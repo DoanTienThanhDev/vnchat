@@ -31,6 +31,10 @@ const ChatBox = ({componentId}) => {
     setIsMessage(false);
   }, []);
 
+  useEffect(() => {
+    setIsMessage(false);
+  }, []);
+
   const renderComposer = props => {
     return (
       <RNView row center fill borderRadius={1} borderColor={COLORS.primary}>
